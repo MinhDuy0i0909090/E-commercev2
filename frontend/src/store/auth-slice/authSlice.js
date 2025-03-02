@@ -141,46 +141,37 @@ export const api = axios.create({
 export const registerUser = createAsyncThunk(
   "/auth/register",
   async (formData) => {
-    const response = await axios.post(
-      api + "/auth/register",
-      formData,
-      { withCredentials: true }
-    );
+    const response = await api.post("/auth/register", formData, {
+      withCredentials: true,
+    });
     return response.data;
   }
 );
 
 // Login
 export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
-  const response = await axios.post(
-    api + "/auth/login",
-    formData,
-    { withCredentials: true }
-  );
+  const response = await api.post("/auth/login", formData, {
+    withCredentials: true,
+  });
   return response.data;
 });
 
 // Check Authentication
 export const checkAuth = createAsyncThunk("/auth/checkauth", async () => {
-  const response = await axios.get(
-    api + "/auth/check-auth",
-    {
-      withCredentials: true,
-      headers: {
-        "Cache-Control":
-          "no-store, no-cache, must-revalidate, proxy-revalidate",
-      },
-    }
-  );
+  const response = await api.get("/auth/check-auth", {
+    withCredentials: true,
+    headers: {
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+    },
+  });
   return response.data;
 });
 
 // Logout
 export const logoutUser = createAsyncThunk("/auth/logout", async () => {
-  const response = await axios.get(
-    api + "/auth/logout",
-    { withCredentials: true }
-  );
+  const response = await api.get("/auth/logout", {
+    withCredentials: true,
+  });
   return response.data;
 });
 
