@@ -133,7 +133,7 @@ const initialState = {
 
 // Create an Axios instance with dynamic baseURL
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL + "/api",
+  baseURL: import.meta.env.VITE_API_URL + "api",
   withCredentials: true,
 });
 
