@@ -62,7 +62,6 @@
 // export const logoutUser = createAsyncThunk(
 //   "/auth/logout",)
 
-
 // const authSlice = createSlice({
 //   name: "auth",
 //   initialState,
@@ -123,7 +122,6 @@
 // export const { setUser } = authSlice.actions;
 // export default authSlice.reducer;
 
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -136,6 +134,7 @@ const initialState = {
 // Create an Axios instance with dynamic baseURL
 export const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL + "/api",
+  withCredentials: true,
 });
 
 // Register
