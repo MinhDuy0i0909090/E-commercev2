@@ -13,7 +13,6 @@ const shopAddressRouter = require("./routes/shop/address-routes");
 const shopOrderRouter = require("./routes/shop/order-routes");
 const shopReviewRouter = require("./routes/shop/review-routes");
 
-
 dotenv.config();
 mongoose
   .connect(process.env.MONGO_URI, {})
@@ -24,7 +23,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://e-commercev2.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://e-commercev2.vercel.app",
+      "https://e-commercev2-7hqy.vercel.app",
+    ],
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
