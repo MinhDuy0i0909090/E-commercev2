@@ -12,13 +12,15 @@ const shopCartRouter = require("./routes/shop/cart-routes");
 const shopAddressRouter = require("./routes/shop/address-routes");
 const shopOrderRouter = require("./routes/shop/order-routes");
 const shopReviewRouter = require("./routes/shop/review-routes");
+
+
+dotenv.config();
 mongoose
   .connect(process.env.MONGO_URI, {})
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
@@ -48,6 +50,6 @@ app.use("/api/shop/order", shopOrderRouter);
 app.use("/api/shop/review", shopReviewRouter);
 
 // app.listen(PORT, () => console.log(`PORT is running on ${PORT}`));
-app.listen(5000, () => {
-  console.log(`Server is now running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is now running `);
 });
