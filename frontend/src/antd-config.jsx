@@ -5,7 +5,7 @@ function AntDProvider({ children }) {
   return (
     <ConfigProvider
       componentSize="middle"
-      locale={vi}
+      // locale={vi}
       theme={{
         token: {
           colorPrimary: "#000",
