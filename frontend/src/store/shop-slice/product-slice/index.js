@@ -6,24 +6,22 @@ const initialState = {
   productList: [],
   productDetails: null,
 };
+export const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL + "api",
+  withCredentials: true,
+});
 
 export const fetchAllFilteredProducts = createAsyncThunk(
   "/products/fetchAllFilteredProduct",
   async () => {
-    const result = await axios.get(
-      "http://localhost:5000/api/shop/products/get"
-    );
-
+    const result = await api.get("/shop/products/get");
     return result?.data;
   }
 );
 export const fetchProductDetails = createAsyncThunk(
   "/products/fetchProductDetails",
   async (id) => {
-    const result = await axios.get(
-      `http://localhost:5000/api/shop/products/get/${id}`
-    );
-
+    const result = await api.get(`/shop/products/get/${id}`);
     return result?.data;
   }
 );
