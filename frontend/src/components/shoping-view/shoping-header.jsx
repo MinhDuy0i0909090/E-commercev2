@@ -89,7 +89,7 @@ function HeaderRightContent() {
     dispatch(fetchCartItems(user?.id));
   }, [dispatch]);
 
-  console.log(cartItems, "cartItems");
+  console.log(cartItems.items, "cartItems");
   return (
     <div className="flex lg:items-center lg:flex-row flex-col gap-4">
       <Badge count={cartItems && cartItems.items && cartItems.items.length}>

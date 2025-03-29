@@ -13,7 +13,7 @@ export const api = axios.create({
 export const getAllOrdersForAdmin = createAsyncThunk(
   "/order/getAllOrdersForAdmin",
   async () => {
-    const response = await api.get(`/admin/orders/get`);
+    const response = await api.get(`/api/admin/orders/get`);
     return response.data;
   }
 );
